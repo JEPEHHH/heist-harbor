@@ -1,61 +1,57 @@
-// Every tuning number and colour in one place. The playfield is a fixed 1280x720 logical area;
-// the renderer scales it to the window, so no rule below depends on the screen size.
+// BLUEPRINT: The Marrow Job — one place for canvas size, palette and tuning numbers.
 
-export const FIELD = { width: 1280, height: 720, groundY: 664 };
+export const CANVAS = { w: 1280, h: 800 };
 
-/** The simulation's fixed step, in seconds: 60 updates a second whatever the display's rate. */
-export const STEP = 1 / 60;
-
-export const PLAYER = {
-  width: 72,
-  height: 24,
-  speed: 560,
-  invulnerable: 1.5,
-};
-
-export const LIVES = 3;
-
-export const BLOCK = {
-  minWidth: 40,
-  maxWidth: 110,
-  height: 36,
-  speed: 240,
-  speedPerLevel: 30,
-  speedJitter: 90,
-  interval: 0.55,
-  intervalScale: 0.88,
-  minInterval: 0.14,
-  dodgePoints: 1,
-};
-
-export const COIN = {
-  size: 24,
-  speed: 190,
-  speedPerLevel: 14,
-  interval: 1.4,
-  intervalJitter: 0.8,
-  points: 10,
-};
-
-/** Seconds of play per level, and the last level: speeds and spawn rates stop growing there. */
-export const LEVEL = { seconds: 12, max: 12 };
-
-/** How many falling things can exist at once; the pool is allocated once, at boot. */
-export const POOL_SIZE = 64;
+export const PAPER = '#f4efe3';
+export const INK = '#1c2a3a';
+export const INK_FAINT = 'rgba(28,42,58,0.20)';
+export const INK_GHOST = 'rgba(28,42,58,0.09)';
+export const VERMILION = '#c8402c';
+export const AMBER = '#c98a1b';
 
 export const PALETTE = {
-  backdrop: '#11141b',
-  sky: '#1b1f2a',
-  ground: '#2a3040',
-  player: '#4fc3f7',
-  block: '#e5534b',
-  coin: '#f2c94c',
-  panel: '#252b38',
-  text: '#eef1f5',
-  muted: '#8b93a3',
+  paper: PAPER,
+  ink: INK,
+  inkFaint: INK_FAINT,
+  inkGhost: INK_GHOST,
+  red: VERMILION,
+  amber: AMBER,
 };
 
-export const FONT = 'system-ui, -apple-system, "Segoe UI", sans-serif';
+export const FONT = '"Courier New", Courier, monospace';
+export const STEP = 1 / 60;
 
-/** Where the best score is kept between visits (this browser only). */
-export const BEST_KEY = 'block-dodger.best';
+export const TUNE = {
+  walkSpeed: 142,
+  sprintSpeed: 238,
+  crouchSpeed: 84,
+  ventSpeed: 72,
+  thiefRadius: 11,
+  guardRadius: 12,
+  guardWalk: 58,
+  guardAlert: 106,
+  guardTurnSpeed: 2.6,
+  visionRange: 242,
+  visionHalfAngle: 0.42,
+  cameraRange: 292,
+  cameraHalfAngle: 1.0472,
+  cameraSweep: 0.62,
+  alarmRiseGuard: 42,
+  alarmRiseCamera: 34,
+  alarmDecay: 9,
+  alertThreshold: 40,
+  failThreshold: 100,
+  interactRange: 50,
+  smokeDuration: 4,
+  decoyDuration: 3.2,
+  baseBudget: 120,
+  seed: 0x5eed1707,
+  totalTimeBonusCap: 600,
+};
+
+export const ROOM_NAMES = ['ARCHIVE HALL', 'LEDGER VAULT', 'LOADING BAY'];
+
+export const TITLE_BLOCK_LINES = [
+  'BLUEPRINT 07 — THE MARROW JOB · 1:50',
+  'ONE FRAME: thief crawling, three guard cones, CAM-01/02 arcs, Marrow Ledger, alarm column, getaway van.',
+];
